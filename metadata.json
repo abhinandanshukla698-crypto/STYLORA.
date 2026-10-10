@@ -1,0 +1,6 @@
+{
+  "name": "StyleBook",
+  "description": "Your Style. Your Place. Your Time. Full-stack salon, beauty parlour, unisex studio, and home beauty booking platform with live queue tracking and AI Style Studio.",
+  "requestFramePermissions": ["geolocation", "camera"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

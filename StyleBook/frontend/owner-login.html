@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Salon & Parlour Partner Login — Stylora</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/auth.css" />
+  <link rel="stylesheet" href="css/ai.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+  <div id="siteHeader"></div>
+
+  <main class="auth-page-wrap">
+    <div class="auth-shell">
+      <div class="auth-visual" style="background:linear-gradient(150deg,#111827 0%,#1E1B4B 60%,#4C1D95 100%);">
+        <div>
+          <span class="badge" style="background:rgba(255,255,255,0.16);color:#FDE68A;margin-bottom:14px;">STYLORA FOR BUSINESS</span>
+          <h2>Salon & Beauty Parlour Command Center.</h2>
+          <p>Accept or reject incoming bookings, issue live queue tokens automatically, manage your services & staff, and chat with customers in real time.</p>
+        </div>
+
+        <div class="auth-demo-card">
+          <h4><i class="fa-solid fa-key"></i> Instant Partner Demo Account</h4>
+          <div class="demo-cred-row">
+            <div>
+              <strong>Royale Crown Atelier (Owner)</strong>
+              <div class="mono-num" style="font-size:0.78rem;opacity:0.85;">owner@stylebook.local / 123456</div>
+            </div>
+            <button type="button" class="btn btn-primary btn-sm" onclick="StyleBookAuth.quickDemoLogin('owner', this)">1-Click Owner Login</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="auth-form-pane">
+        <h1>Partner Login</h1>
+        <p class="auth-subtitle">Sign in to manage your salon, parlour, or home beauty fleet</p>
+
+        <form id="loginForm">
+          <div class="form-group">
+            <label class="form-label" for="email">Business Email</label>
+            <input type="email" id="email" class="form-control" value="owner@stylebook.local" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="password">Password</label>
+            <input type="password" id="password" class="form-control" value="123456" required />
+          </div>
+          <button type="submit" class="btn btn-primary btn-lg btn-block">Open Salon Dashboard</button>
+        </form>
+
+        <div style="margin-top:22px;padding-top:18px;border-top:1px solid var(--border);display:flex;justify-content:space-between;font-size:0.88rem;">
+          <span>New Partner? <a href="owner-register.html" style="color:var(--primary);font-weight:700;">Register Your Salon</a></span>
+          <a href="login.html" style="color:var(--text-muted);font-weight:600;">Customer Login →</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/config.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/common.js"></script>
+</body>
+</html>

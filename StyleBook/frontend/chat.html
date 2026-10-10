@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Direct Chat & Friends — Stylora</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/customer.css" />
+  <link rel="stylesheet" href="css/ai.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+  <div id="siteHeader"></div>
+
+  <main class="container" style="padding-top:24px;">
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;margin-bottom:18px;">
+      <div>
+        <h1 style="font-family:var(--font-display);font-size:1.65rem;font-weight:800;">Stylora Chat — Salons & Friends</h1>
+        <p style="color:var(--text-muted);font-size:0.9rem;">Chat with salons about appointments and live queue tokens, or chat directly with friends by Friend ID or Phone Number!</p>
+      </div>
+      <div id="myFriendIdPill" style="display:inline-flex;align-items:center;gap:10px;background:#F3E8FF;border:1px solid #D8B4FE;padding:8px 14px;border-radius:var(--radius-full);">
+        <i class="fa-solid fa-id-badge" style="color:var(--primary);"></i>
+        <span style="font-size:0.85rem;color:var(--dark);">My Friend ID: <strong id="myFriendIdVal" class="mono-num">...</strong></span>
+        <button type="button" class="btn btn-sm btn-primary" onclick="StyleBookChat.copyMyFriendId()" style="padding:4px 10px;font-size:0.75rem;"><i class="fa-regular fa-copy"></i> Copy</button>
+      </div>
+    </div>
+
+    <div class="chat-layout">
+      <!-- CONVERSATIONS LIST SIDEBAR -->
+      <aside class="card" style="overflow-y:auto;max-height:620px;display:flex;flex-direction:column;">
+        <div style="display:flex;border-bottom:1px solid var(--border);background:#F8FAFC;">
+          <button type="button" id="tabSalonChats" class="tab-btn active" style="flex:1;padding:12px;font-size:0.86rem;font-weight:700;border:none;cursor:pointer;" onclick="StyleBookChat.switchMode('salon')">
+            <i class="fa-solid fa-scissors"></i> Salon Bookings
+          </button>
+          <button type="button" id="tabFriendChats" class="tab-btn" style="flex:1;padding:12px;font-size:0.86rem;font-weight:700;border:none;cursor:pointer;" onclick="StyleBookChat.switchMode('friend')">
+            <i class="fa-solid fa-user-group"></i> Chat with Friends
+          </button>
+        </div>
+
+        <!-- FRIEND SEARCH SECTION (Visible in friend mode) -->
+        <div id="friendSearchPane" style="display:none;padding:12px;border-bottom:1px solid var(--border);background:#FFFFFF;">
+          <div style="display:flex;gap:8px;">
+            <input type="text" id="friendSearchInput" class="form-control" style="font-size:0.85rem;" placeholder="Phone (e.g. 9811122302) or ID..." onkeydown="if(event.key==='Enter'){event.preventDefault();StyleBookChat.searchFriends();}" />
+            <button type="button" class="btn btn-primary btn-sm" onclick="StyleBookChat.searchFriends()"><i class="fa-solid fa-magnifying-glass"></i></button>
+          </div>
+          <div id="friendSearchResults" style="margin-top:8px;"></div>
+        </div>
+
+        <div id="chatConversationsList" style="flex:1;overflow-y:auto;"></div>
+      </aside>
+
+      <!-- ACTIVE CHAT WINDOW -->
+      <section class="card" style="display:flex;flex-direction:column;min-height:560px;">
+        <div id="chatActiveHeader" style="padding:16px 20px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;">
+          <strong>Select a conversation</strong>
+        </div>
+
+        <div class="chat-messages-box" id="chatMessagesBox" style="flex:1;"></div>
+
+        <div id="chatTypingIndicator" style="display:none;padding:6px 20px;font-size:0.78rem;color:var(--primary);font-style:italic;background:#F8FAFC;">
+          <i class="fa-solid fa-ellipsis fa-fade"></i> Typing...
+        </div>
+
+        <!-- QUICK REPLIES -->
+        <div class="quick-replies-bar" id="quickRepliesBar">
+          <button type="button" class="quick-reply-chip" onclick="StyleBookChat.sendQuickReply('What is the current queue?')">What is the current queue?</button>
+          <button type="button" class="quick-reply-chip" onclick="StyleBookChat.sendQuickReply('How long will I have to wait?')">How long will I have to wait?</button>
+          <button type="button" class="quick-reply-chip" onclick="StyleBookChat.sendQuickReply('Is this service available?')">Is this service available?</button>
+          <button type="button" class="quick-reply-chip" onclick="StyleBookChat.sendQuickReply('Hey! Let\'s book a salon visit together!')">Let's book together!</button>
+        </div>
+
+        <form id="chatMessageForm" style="padding:14px;border-top:1px solid var(--border);display:flex;gap:10px;">
+          <input type="text" id="chatMessageInput" class="form-control" placeholder="Type your message..." required />
+          <button type="submit" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i> Send</button>
+        </form>
+      </section>
+    </div>
+  </main>
+
+  <div id="siteFooter"></div>
+
+  <script src="js/config.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/chat.js"></script>
+</body>
+</html>

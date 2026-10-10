@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Live Salon & Parlour Map — Stylora</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/customer.css" />
+  <link rel="stylesheet" href="css/ai.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+  <div id="siteHeader"></div>
+
+  <main class="container" style="padding-top:24px;">
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;margin-bottom:18px;">
+      <div>
+        <h1 style="font-family:var(--font-display);font-size:1.75rem;font-weight:800;">Nearby Salons & Beauty Parlours Map</h1>
+        <p style="color:var(--text-muted);font-size:0.9rem;">Explore verified pins, compare live queue wait times, and launch turn-by-turn Google Maps directions.</p>
+      </div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;">
+        <input type="text" id="mapSearchInput" class="form-control" style="width:210px;" placeholder="Search locality or salon..." />
+        <select id="mapCityFilter" class="form-control" style="width:150px;">
+          <option value="all">All Cities</option>
+          <option value="Delhi">Delhi</option>
+          <option value="Noida">Noida</option>
+          <option value="Gurugram">Gurugram</option>
+          <option value="Ghaziabad">Ghaziabad</option>
+          <option value="Lucknow">Lucknow</option>
+          <option value="Kanpur">Kanpur</option>
+          <option value="Varanasi">Varanasi</option>
+          <option value="Prayagraj">Prayagraj</option>
+        </select>
+        <select id="mapCategoryFilter" class="form-control" style="width:160px;">
+          <option value="all">All Categories</option>
+          <option value="men">Men's Salon</option>
+          <option value="women">Women's Parlour</option>
+          <option value="unisex">Unisex Studio</option>
+          <option value="home">Home Service</option>
+        </select>
+        <button type="button" class="btn btn-soft" id="mapMyLocationBtn"><i class="fa-solid fa-location-crosshairs"></i> My Location</button>
+      </div>
+    </div>
+
+    <div id="nearestPlaceBanner" style="display:none;margin-bottom:14px;padding:12px 18px;background:#F0FDF4;border:1px solid #BBF7D0;border-radius:var(--radius-lg);">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;">
+        <div>
+          <span style="font-size:0.8rem;font-weight:700;color:#15803D;text-transform:uppercase;letter-spacing:0.5px;display:block;">
+            <i class="fa-solid fa-location-dot"></i> Nearest Place Detected
+          </span>
+          <strong id="nearestPlaceBannerTitle" style="font-size:1.05rem;color:#166534;">Connaught Place, Central Delhi</strong>
+          <span id="nearestPlaceBannerSub" style="font-size:0.85rem;color:#15803D;display:block;">Nearest Salon: Royale Crown Atelier (0.4 km)</span>
+        </div>
+        <div id="nearestPlaceBannerActions"></div>
+      </div>
+    </div>
+
+    <div class="details-grid" style="grid-template-columns:1.45fr 1fr;">
+      <div id="googleMapCanvas" style="height:580px;border-radius:var(--radius-xl);border:1px solid var(--border);overflow:hidden;background:#E2E8F0;"></div>
+      <div id="mapDirectoryList" style="max-height:580px;overflow-y:auto;padding-right:4px;"></div>
+    </div>
+  </main>
+
+  <div id="siteFooter"></div>
+
+  <script src="js/config.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/map.js"></script>
+</body>
+</html>

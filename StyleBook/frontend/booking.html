@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book Appointment & Join Live Queue — Stylora</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/customer.css" />
+  <link rel="stylesheet" href="css/ai.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+  <div id="siteHeader"></div>
+
+  <main class="container">
+    <div class="booking-layout">
+      <div class="card" style="padding:28px;">
+        <span class="badge badge-verified" style="margin-bottom:8px;">INSTANT RESERVATION</span>
+        <h1 style="font-family:var(--font-display);font-size:1.75rem;margin-bottom:6px;">Complete Your Booking</h1>
+        <p style="color:var(--text-muted);font-size:0.92rem;margin-bottom:24px;">
+          Select your salon, service, optional specialist, and whether you want In-Salon or Doorstep Home Service.
+        </p>
+
+        <form id="bookingConfirmForm">
+          <div class="form-group">
+            <label class="form-label" for="bkgBusiness">Select Salon / Beauty Parlour</label>
+            <select id="bkgBusiness" class="form-control" required></select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="bkgService">Select Service</label>
+            <select id="bkgService" class="form-control" required></select>
+          </div>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+            <div class="form-group">
+              <label class="form-label" for="bkgStaff">Preferred Specialist (Optional)</label>
+              <select id="bkgStaff" class="form-control"></select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="bkgType">Booking Type</label>
+              <select id="bkgType" class="form-control">
+                <option value="In-Salon">In-Salon Visit</option>
+                <option value="Home Service">Home Service (Doorstep)</option>
+              </select>
+            </div>
+          </div>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+            <div class="form-group">
+              <label class="form-label" for="bkgDate">Preferred Date</label>
+              <input type="date" id="bkgDate" class="form-control" value="2026-09-26" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="bkgTime">Preferred Time Slot</label>
+              <select id="bkgTime" class="form-control" required>
+                <option value="10:00 AM">10:00 AM</option>
+                <option value="11:00 AM">11:00 AM</option>
+                <option value="12:00 PM">12:00 PM</option>
+                <option value="01:00 PM" selected>01:00 PM</option>
+                <option value="02:30 PM">02:30 PM</option>
+                <option value="04:00 PM">04:00 PM</option>
+                <option value="05:30 PM">05:30 PM</option>
+                <option value="07:00 PM">07:00 PM</option>
+              </select>
+            </div>
+          </div>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+            <div class="form-group">
+              <label class="form-label" for="bkgCustName">Your Name</label>
+              <input type="text" id="bkgCustName" class="form-control" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="bkgCustPhone">Mobile Number</label>
+              <input type="tel" id="bkgCustPhone" class="form-control" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px;margin-bottom:6px;">
+              <label class="form-label" for="bkgAddress" style="margin-bottom:0;">Service Location / Address</label>
+              <div style="display:flex;gap:6px;">
+                <button type="button" class="btn btn-sm btn-soft" id="btnDetectNearestPlace" onclick="StyleBookBooking.detectNearestPlace()" style="padding:4px 10px;font-size:0.78rem;">
+                  <i class="fa-solid fa-location-crosshairs"></i> Detect Nearest Place
+                </button>
+                <button type="button" class="btn btn-sm btn-outline" id="btnOpenMapPicker" onclick="StyleBookBooking.openLocationPickerModal()" style="padding:4px 10px;font-size:0.78rem;">
+                  <i class="fa-solid fa-map-location-dot"></i> Pick Area
+                </button>
+              </div>
+            </div>
+            <input type="text" id="bkgAddress" class="form-control" placeholder="Flat / House No, Locality, City (e.g. Connaught Place, New Delhi)" oninput="StyleBookBooking.onAddressTyped(this.value)" />
+            <div id="nearestPlaceBadge" style="display:none;margin-top:8px;padding:10px 14px;background:#F0FDF4;border:1px solid #BBF7D0;border-radius:var(--radius-md);font-size:0.84rem;color:#166534;">
+              <i class="fa-solid fa-circle-check"></i> <span id="nearestPlaceText">Nearest landmark detected</span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="bkgNotes">Special Styling Notes (Optional)</label>
+            <textarea id="bkgNotes" class="form-control" rows="2" placeholder="e.g. Low fade on sides, sensitive skin, bring organic kit..."></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-lg btn-block">
+            <i class="fa-solid fa-calendar-check"></i> CONFIRM BOOKING
+          </button>
+        </form>
+      </div>
+
+      <!-- PRE-BOOKING LIVE QUEUE & SUMMARY CARD -->
+      <aside class="queue-live-board" id="bookingSummaryMount">
+        <div style="text-align:center;padding:30px;">Loading live queue & summary...</div>
+      </aside>
+    </div>
+  </main>
+
+  <div id="siteFooter"></div>
+
+  <script src="js/config.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/booking.js"></script>
+</body>
+</html>

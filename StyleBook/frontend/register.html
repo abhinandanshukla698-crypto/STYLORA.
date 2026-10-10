@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Create Customer Account — Stylora</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/auth.css" />
+  <link rel="stylesheet" href="css/ai.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+  <div id="siteHeader"></div>
+
+  <main class="auth-page-wrap">
+    <div class="auth-shell">
+      <div class="auth-visual">
+        <div>
+          <span class="badge" style="background:rgba(255,255,255,0.15);color:#FDE68A;margin-bottom:14px;">JOIN STYLORA</span>
+          <h2>Book Trusted Salons & Beauty Pros Near You.</h2>
+          <p>Create your free account to unlock real-time queue tracking, doorstep salon bookings, AI hairstyle recommendations, and instant stylist chat.</p>
+        </div>
+
+        <div class="auth-demo-card">
+          <h4><i class="fa-solid fa-circle-check"></i> Why 50,000+ Customers Love Stylora</h4>
+          <p style="font-size:0.84rem;margin-bottom:8px;">• See exact salon queue & wait time before booking</p>
+          <p style="font-size:0.84rem;margin-bottom:8px;">• Verified Men's Salons, Women's Parlours & Unisex Studios</p>
+          <p style="font-size:0.84rem;">• 100% Hygienic At-Home Salon & Bridal Services</p>
+        </div>
+      </div>
+
+      <div class="auth-form-pane">
+        <h1>Create Account</h1>
+        <p class="auth-subtitle">Personalize your StyleBook experience in 30 seconds</p>
+
+        <form id="registerForm" data-role="customer">
+          <!-- Profile Photo Selection -->
+          <div class="form-group avatar-upload-section" style="background:#F9FAFB;border:1px solid #E5E7EB;border-radius:var(--radius-lg);padding:14px 16px;margin-bottom:16px;">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+              <label class="form-label" style="margin-bottom:0;font-weight:700;display:flex;align-items:center;gap:6px;">
+                <i class="fa-solid fa-camera" style="color:var(--primary);"></i> Profile Photo
+                <span style="font-size:0.78rem;font-weight:500;color:var(--text-muted);">(Upload or Pick Avatar)</span>
+              </label>
+              <span id="avatarStatusBadge" class="badge" style="background:#EEF2FF;color:#4F46E5;font-size:0.75rem;">Default Chosen</span>
+            </div>
+
+            <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;">
+              <!-- Avatar Preview with Camera Overlay -->
+              <div style="position:relative;width:66px;height:66px;flex-shrink:0;">
+                <img id="avatarPreviewImg" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80" alt="Profile Preview" style="width:66px;height:66px;border-radius:50%;object-fit:cover;border:3px solid var(--primary);box-shadow:var(--shadow-sm);" />
+                <label for="avatarFileInput" title="Upload from Device / Gallery / Camera" style="position:absolute;bottom:-2px;right:-2px;width:24px;height:24px;border-radius:50%;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:0.7rem;border:2px solid #fff;box-shadow:var(--shadow-sm);">
+                  <i class="fa-solid fa-camera"></i>
+                </label>
+              </div>
+
+              <!-- Upload & Presets -->
+              <div style="flex:1;min-width:200px;">
+                <div style="display:flex;gap:8px;margin-bottom:8px;flex-wrap:wrap;">
+                  <label class="btn btn-outline btn-sm" style="cursor:pointer;padding:5px 11px;font-size:0.8rem;">
+                    <i class="fa-solid fa-upload"></i> Upload from Phone/PC
+                    <input type="file" id="avatarFileInput" accept="image/*" style="display:none;" />
+                  </label>
+                  <button type="button" class="btn btn-soft btn-sm" id="btnToggleUrlInput" style="padding:5px 11px;font-size:0.8rem;">
+                    <i class="fa-solid fa-link"></i> Photo Link
+                  </button>
+                </div>
+
+                <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;">
+                  <span style="font-size:0.76rem;color:var(--text-muted);font-weight:600;">Or Pick Preset:</span>
+                  <div class="preset-avatar-group" style="display:flex;gap:6px;align-items:center;">
+                    <img class="preset-avatar-option active" data-url="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80" alt="Preset 1" title="Chic Classic" />
+                    <img class="preset-avatar-option" data-url="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80" alt="Preset 2" title="Modern Gent" />
+                    <img class="preset-avatar-option" data-url="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=300&q=80" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=120&q=80" alt="Preset 3" title="Urban Fade" />
+                    <img class="preset-avatar-option" data-url="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=300&q=80" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=120&q=80" alt="Preset 4" title="Elegant Radiant" />
+                    <img class="preset-avatar-option" data-url="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=300&q=80" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&q=80" alt="Preset 5" title="Smart Casual" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Optional Direct URL Input -->
+            <div id="avatarUrlWrap" style="display:none;margin-top:10px;">
+              <div style="display:flex;gap:8px;">
+                <input type="url" id="avatarUrlInput" class="form-control" style="font-size:0.84rem;padding:6px 10px;" placeholder="Paste image URL (https://...)" />
+                <button type="button" class="btn btn-primary btn-sm" id="btnApplyAvatarUrl">Apply</button>
+              </div>
+            </div>
+
+            <input type="hidden" id="avatar" value="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80" />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="name">Full Name</label>
+            <input type="text" id="name" class="form-control" placeholder="e.g. Aarav Sharma" required />
+          </div>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+            <div class="form-group">
+              <label class="form-label" for="email">Email Address</label>
+              <input type="email" id="email" class="form-control" placeholder="you@example.com" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="phone">Mobile Number</label>
+              <input type="tel" id="phone" class="form-control" placeholder="+91 98110 00000" required />
+            </div>
+          </div>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+            <div class="form-group">
+              <label class="form-label" for="preferred_type">What are you looking for?</label>
+              <select id="preferred_type" class="form-control">
+                <option value="unisex">Unisex Salon</option>
+                <option value="men">Men's Salon</option>
+                <option value="women">Women's Beauty Parlour</option>
+                <option value="home">Home Service</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="city">Your City</label>
+              <select id="city" class="form-control">
+                <option value="Delhi">Delhi</option>
+                <option value="Noida">Noida</option>
+                <option value="Gurugram">Gurugram</option>
+                <option value="Ghaziabad">Ghaziabad</option>
+                <option value="Lucknow">Lucknow</option>
+                <option value="Kanpur">Kanpur</option>
+                <option value="Varanasi">Varanasi</option>
+                <option value="Prayagraj">Prayagraj</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="password">Password (min 6 characters)</label>
+            <input type="password" id="password" class="form-control" placeholder="••••••" minlength="6" required />
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-lg btn-block">Create Customer Account</button>
+        </form>
+
+        <div style="margin-top:18px;font-size:0.88rem;display:flex;justify-content:space-between;">
+          <span>Already registered? <a href="login.html" style="color:var(--primary);font-weight:700;">Sign In</a></span>
+          <a href="owner-register.html" style="color:var(--text-muted);font-weight:600;">Register a Salon →</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/config.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/common.js"></script>
+</body>
+</html>

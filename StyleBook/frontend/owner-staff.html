@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manage Staff & Stylists — Stylora</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/customer.css" />
+  <link rel="stylesheet" href="css/owner.css" />
+  <link rel="stylesheet" href="css/ai.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+  <div id="siteHeader"></div>
+
+  <div class="owner-layout">
+    <div id="ownerSidebarMount"></div>
+    <main class="owner-main">
+      <h1 style="font-family:var(--font-display);font-size:1.75rem;font-weight:800;margin-bottom:6px;">Staff & Specialist Directory</h1>
+      <p style="color:var(--text-muted);margin-bottom:24px;">Add hair stylists, makeup artists, barbers, and beauticians so customers can choose their preferred expert.</p>
+
+      <div class="details-grid" style="grid-template-columns:1fr 1.4fr;">
+        <div class="card" style="padding:24px;">
+          <h3 style="font-size:1.15rem;font-weight:700;margin-bottom:16px;">Add Staff Member</h3>
+          <form id="addStaffForm">
+            <div class="form-group">
+              <label class="form-label" for="stfName">Full Name</label>
+              <input type="text" id="stfName" class="form-control" placeholder="e.g. Kabir Malhotra" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="stfRole">Role</label>
+              <select id="stfRole" class="form-control">
+                <option value="Senior Hair Stylist">Senior Hair Stylist</option>
+                <option value="Makeup Artist">Makeup Artist</option>
+                <option value="Barber">Master Barber</option>
+                <option value="Beautician">Senior Beautician</option>
+                <option value="Nail Artist">Nail Artist</option>
+                <option value="Color Specialist">Color Specialist</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="stfSpec">Specialization</label>
+              <input type="text" id="stfSpec" class="form-control" placeholder="e.g. Skin Fades, Balayage & Keratin" required />
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+              <div class="form-group">
+                <label class="form-label" for="stfExp">Experience</label>
+                <input type="text" id="stfExp" class="form-control" value="6 Years" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="stfDays">Working Days</label>
+                <input type="text" id="stfDays" class="form-control" value="Mon - Sun" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="stfHours">Working Hours</label>
+              <input type="text" id="stfHours" class="form-control" value="09:30 AM - 08:30 PM" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="stfPhoto">Photo URL (Optional)</label>
+              <input type="url" id="stfPhoto" class="form-control" placeholder="https://..." />
+            </div>
+            <button type="submit" class="btn btn-primary btn-block"><i class="fa-solid fa-user-plus"></i> Add Specialist</button>
+          </form>
+        </div>
+
+        <div>
+          <div class="cards-grid-3" id="ownerStaffGrid" style="grid-template-columns:repeat(auto-fill,minmax(230px,1fr));"></div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/config.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/owner.js"></script>
+</body>
+</html>

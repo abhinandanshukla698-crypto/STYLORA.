@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manage Services & Pricing — Stylora</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/customer.css" />
+  <link rel="stylesheet" href="css/owner.css" />
+  <link rel="stylesheet" href="css/ai.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+  <div id="siteHeader"></div>
+
+  <div class="owner-layout">
+    <div id="ownerSidebarMount"></div>
+    <main class="owner-main">
+      <h1 style="font-family:var(--font-display);font-size:1.75rem;font-weight:800;margin-bottom:6px;">Service Menu & INR Pricing</h1>
+      <p style="color:var(--text-muted);margin-bottom:24px;">Add new salon or doorstep home beauty services and manage your live service catalog.</p>
+
+      <div class="details-grid" style="grid-template-columns:1fr 1.4fr;">
+        <div class="card" style="padding:24px;">
+          <h3 style="font-size:1.15rem;font-weight:700;margin-bottom:16px;">Add New Service</h3>
+          <form id="addServiceForm">
+            <div class="form-group">
+              <label class="form-label" for="srvName">Service Name</label>
+              <input type="text" id="srvName" class="form-control" placeholder="e.g. Signature Keratin Hair Spa" required />
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+              <div class="form-group">
+                <label class="form-label" for="srvCategory">Category</label>
+                <select id="srvCategory" class="form-control">
+                  <option value="Haircut">Haircut</option>
+                  <option value="Hair Styling">Hair Styling</option>
+                  <option value="Beard Styling">Beard Styling</option>
+                  <option value="Shaving">Shaving</option>
+                  <option value="Facial">Facial</option>
+                  <option value="Hair Color">Hair Color</option>
+                  <option value="Hair Spa">Hair Spa</option>
+                  <option value="Bridal Makeup">Bridal Makeup</option>
+                  <option value="Party Makeup">Party Makeup</option>
+                  <option value="Waxing">Waxing</option>
+                  <option value="Manicure">Manicure / Pedicure</option>
+                  <option value="Mehndi">Mehndi</option>
+                  <option value="Grooming Package">Grooming Package</option>
+                  <option value="Home Grooming">Home Service</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="srvGender">Target Segment</label>
+                <select id="srvGender" class="form-control">
+                  <option value="unisex">Unisex</option>
+                  <option value="men">Men</option>
+                  <option value="women">Women</option>
+                  <option value="home">Home Service</option>
+                </select>
+              </div>
+            </div>
+
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+              <div class="form-group">
+                <label class="form-label" for="srvPrice">Price (₹ INR)</label>
+                <input type="number" id="srvPrice" class="form-control" value="499" min="49" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="srvDuration">Duration (Minutes)</label>
+                <input type="number" id="srvDuration" class="form-control" value="35" min="10" required />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="srvDesc">Service Description</label>
+              <textarea id="srvDesc" class="form-control" rows="2" placeholder="Describe products used and steps included..." required></textarea>
+            </div>
+
+            <div class="form-group">
+              <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:0.9rem;">
+                <input type="checkbox" id="srvHome" checked />
+                <span>Available for Doorstep Home Service</span>
+              </label>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block"><i class="fa-solid fa-plus"></i> Add Service to Menu</button>
+          </form>
+        </div>
+
+        <div class="card" style="padding:24px;">
+          <h3 style="font-size:1.15rem;font-weight:700;margin-bottom:16px;">Active Studio Services</h3>
+          <div id="ownerServicesList"></div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/config.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/owner.js"></script>
+</body>
+</html>

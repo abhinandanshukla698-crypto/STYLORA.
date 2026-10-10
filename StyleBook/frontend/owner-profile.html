@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Salon Business Profile — Stylora</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/owner.css" />
+  <link rel="stylesheet" href="css/ai.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+  <div id="siteHeader"></div>
+
+  <div class="owner-layout">
+    <div id="ownerSidebarMount"></div>
+    <main class="owner-main">
+      <h1 style="font-family:var(--font-display);font-size:1.75rem;font-weight:800;margin-bottom:6px;">Business Profile & Storefront</h1>
+      <p style="color:var(--text-muted);margin-bottom:24px;">Update your public salon name, category, address, contact details, and description.</p>
+
+      <div class="card" style="padding:28px;max-width:780px;">
+        <form id="ownerBusinessForm">
+          <!-- Owner & Representative Photo -->
+          <div class="form-group avatar-upload-section" style="background:#F9FAFB;border:1px solid #E5E7EB;border-radius:var(--radius-lg);padding:14px 16px;margin-bottom:18px;">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+              <label class="form-label" style="margin-bottom:0;font-weight:700;display:flex;align-items:center;gap:6px;">
+                <i class="fa-solid fa-camera" style="color:var(--primary);"></i> Owner & Representative Photo
+              </label>
+              <span id="ownerAvatarStatusBadge" class="badge" style="background:#EEF2FF;color:#4F46E5;font-size:0.75rem;">Active Photo</span>
+            </div>
+
+            <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;">
+              <div style="position:relative;width:68px;height:68px;flex-shrink:0;">
+                <img id="ownerAvatarImg" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80" alt="Owner Photo" style="width:68px;height:68px;border-radius:50%;object-fit:cover;border:3px solid var(--primary);box-shadow:var(--shadow-sm);" />
+                <label for="ownerAvatarFile" title="Change Photo" style="position:absolute;bottom:-2px;right:-2px;width:24px;height:24px;border-radius:50%;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:0.7rem;border:2px solid #fff;box-shadow:var(--shadow-sm);">
+                  <i class="fa-solid fa-camera"></i>
+                </label>
+              </div>
+
+              <div style="flex:1;min-width:200px;">
+                <div style="display:flex;gap:8px;margin-bottom:8px;flex-wrap:wrap;">
+                  <label class="btn btn-outline btn-sm" style="cursor:pointer;padding:5px 11px;font-size:0.8rem;">
+                    <i class="fa-solid fa-upload"></i> Change Photo
+                    <input type="file" id="ownerAvatarFile" accept="image/*" style="display:none;" />
+                  </label>
+                </div>
+                <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;">
+                  <span style="font-size:0.76rem;color:var(--text-muted);font-weight:600;">Presets:</span>
+                  <div class="preset-avatar-group" style="display:flex;gap:6px;align-items:center;">
+                    <img class="preset-avatar-option" data-url="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80" alt="Preset 1" />
+                    <img class="preset-avatar-option" data-url="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=300&q=80" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=120&q=80" alt="Preset 2" />
+                    <img class="preset-avatar-option" data-url="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80" alt="Preset 3" />
+                    <img class="preset-avatar-option" data-url="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=300&q=80" src="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=120&q=80" alt="Preset 4" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <input type="hidden" id="ownerAvatar" />
+          </div>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+            <div class="form-group">
+              <label class="form-label" for="bizName">Business Name</label>
+              <input type="text" id="bizName" class="form-control" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="bizCategory">Business Category</label>
+              <select id="bizCategory" class="form-control">
+                <option value="unisex">Unisex Salon</option>
+                <option value="men">Men's Salon</option>
+                <option value="women">Women's Beauty Parlour</option>
+                <option value="home">Home Beauty Fleet</option>
+              </select>
+            </div>
+          </div>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+            <div class="form-group">
+              <label class="form-label" for="bizPhone">Business Phone</label>
+              <input type="tel" id="bizPhone" class="form-control" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="bizEmail">Public Contact Email</label>
+              <input type="email" id="bizEmail" class="form-control" required />
+            </div>
+          </div>
+
+          <div style="display:grid;grid-template-columns:1fr 2fr;gap:14px;">
+            <div class="form-group">
+              <label class="form-label" for="bizCity">City</label>
+              <select id="bizCity" class="form-control">
+                <option value="Delhi">Delhi</option>
+                <option value="Noida">Noida</option>
+                <option value="Gurugram">Gurugram</option>
+                <option value="Ghaziabad">Ghaziabad</option>
+                <option value="Lucknow">Lucknow</option>
+                <option value="Kanpur">Kanpur</option>
+                <option value="Varanasi">Varanasi</option>
+                <option value="Prayagraj">Prayagraj</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="bizAddress">Street Address</label>
+              <input type="text" id="bizAddress" class="form-control" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="bizDesc">About the Salon / Parlour</label>
+            <textarea id="bizDesc" class="form-control" rows="3"></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Save Business Profile</button>
+        </form>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/config.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/owner.js"></script>
+</body>
+</html>

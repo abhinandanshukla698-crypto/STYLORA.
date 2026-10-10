@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register Your Salon or Parlour — Stylora</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/auth.css" />
+  <link rel="stylesheet" href="css/ai.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+  <div id="siteHeader"></div>
+
+  <main class="auth-page-wrap">
+    <div class="auth-shell">
+      <div class="auth-visual">
+        <div>
+          <span class="badge" style="background:rgba(255,255,255,0.16);color:#FDE68A;margin-bottom:14px;">PARTNER ONBOARDING</span>
+          <h2>Grow Your Salon with Live Queue & Smart Bookings.</h2>
+          <p>Eliminate crowded waiting areas, let customers see your live queue before booking, and manage your entire team from one sleek dashboard.</p>
+        </div>
+        <div class="auth-demo-card">
+          <h4>Included Free for Verified Partners</h4>
+          <p style="font-size:0.84rem;margin-bottom:6px;">• Automated Queue Token Generator</p>
+          <p style="font-size:0.84rem;margin-bottom:6px;">• In-Salon & Doorstep Home Service Bookings</p>
+          <p style="font-size:0.84rem;">• Service Menu, Staff & Customer Chat Console</p>
+        </div>
+      </div>
+
+      <div class="auth-form-pane">
+        <h1>Register Your Business</h1>
+        <p class="auth-subtitle">Launch your digital salon storefront in 60 seconds</p>
+
+        <form id="registerForm" data-role="owner">
+          <!-- Owner / Salon Profile Photo -->
+          <div class="form-group avatar-upload-section" style="background:#F9FAFB;border:1px solid #E5E7EB;border-radius:var(--radius-lg);padding:14px 16px;margin-bottom:16px;">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+              <label class="form-label" style="margin-bottom:0;font-weight:700;display:flex;align-items:center;gap:6px;">
+                <i class="fa-solid fa-camera" style="color:var(--primary);"></i> Owner & Studio Profile Photo
+                <span style="font-size:0.78rem;font-weight:500;color:var(--text-muted);">(Upload or Pick Avatar)</span>
+              </label>
+              <span id="avatarStatusBadge" class="badge" style="background:#EEF2FF;color:#4F46E5;font-size:0.75rem;">Default Chosen</span>
+            </div>
+
+            <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;">
+              <!-- Avatar Preview with Camera Overlay -->
+              <div style="position:relative;width:66px;height:66px;flex-shrink:0;">
+                <img id="avatarPreviewImg" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80" alt="Owner Preview" style="width:66px;height:66px;border-radius:50%;object-fit:cover;border:3px solid var(--primary);box-shadow:var(--shadow-sm);" />
+                <label for="avatarFileInput" title="Upload from Device / Gallery / Camera" style="position:absolute;bottom:-2px;right:-2px;width:24px;height:24px;border-radius:50%;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:0.7rem;border:2px solid #fff;box-shadow:var(--shadow-sm);">
+                  <i class="fa-solid fa-camera"></i>
+                </label>
+              </div>
+
+              <!-- Upload & Presets -->
+              <div style="flex:1;min-width:200px;">
+                <div style="display:flex;gap:8px;margin-bottom:8px;flex-wrap:wrap;">
+                  <label class="btn btn-outline btn-sm" style="cursor:pointer;padding:5px 11px;font-size:0.8rem;">
+                    <i class="fa-solid fa-upload"></i> Upload Photo / Logo
+                    <input type="file" id="avatarFileInput" accept="image/*" style="display:none;" />
+                  </label>
+                  <button type="button" class="btn btn-soft btn-sm" id="btnToggleUrlInput" style="padding:5px 11px;font-size:0.8rem;">
+                    <i class="fa-solid fa-link"></i> Photo Link
+                  </button>
+                </div>
+
+                <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;">
+                  <span style="font-size:0.76rem;color:var(--text-muted);font-weight:600;">Presets:</span>
+                  <div class="preset-avatar-group" style="display:flex;gap:6px;align-items:center;">
+                    <img class="preset-avatar-option active" data-url="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80" alt="Owner 1" title="Director & Lead Stylist" />
+                    <img class="preset-avatar-option" data-url="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=300&q=80" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=120&q=80" alt="Owner 2" title="Salon Founder" />
+                    <img class="preset-avatar-option" data-url="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80" alt="Owner 3" title="Studio Executive" />
+                    <img class="preset-avatar-option" data-url="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=300&q=80" src="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=120&q=80" alt="Owner 4" title="Barber Artisan" />
+                    <img class="preset-avatar-option" data-url="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=300&q=80" src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=120&q=80" alt="Owner 5" title="Beauty Salon Studio" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Optional Direct URL Input -->
+            <div id="avatarUrlWrap" style="display:none;margin-top:10px;">
+              <div style="display:flex;gap:8px;">
+                <input type="url" id="avatarUrlInput" class="form-control" style="font-size:0.84rem;padding:6px 10px;" placeholder="Paste image URL (https://...)" />
+                <button type="button" class="btn btn-primary btn-sm" id="btnApplyAvatarUrl">Apply</button>
+              </div>
+            </div>
+
+            <input type="hidden" id="avatar" value="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80" />
+          </div>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+            <div class="form-group">
+              <label class="form-label" for="name">Owner Full Name</label>
+              <input type="text" id="name" class="form-control" placeholder="Vikramaditya Kapoor" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="business_name">Salon / Parlour Name</label>
+              <input type="text" id="business_name" class="form-control" placeholder="e.g. Luxe Atelier Studio" required />
+            </div>
+          </div>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+            <div class="form-group">
+              <label class="form-label" for="email">Business Email</label>
+              <input type="email" id="email" class="form-control" placeholder="studio@example.com" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="phone">Salon Phone</label>
+              <input type="tel" id="phone" class="form-control" placeholder="+91 98110 99000" required />
+            </div>
+          </div>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+            <div class="form-group">
+              <label class="form-label" for="business_category">Business Type</label>
+              <select id="business_category" class="form-control">
+                <option value="unisex">Unisex Salon</option>
+                <option value="men">Men's Salon</option>
+                <option value="women">Women's Beauty Parlour</option>
+                <option value="home">Home Beauty Service</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="city">City</label>
+              <select id="city" class="form-control">
+                <option value="Delhi">Delhi</option>
+                <option value="Noida">Noida</option>
+                <option value="Gurugram">Gurugram</option>
+                <option value="Ghaziabad">Ghaziabad</option>
+                <option value="Lucknow">Lucknow</option>
+                <option value="Kanpur">Kanpur</option>
+                <option value="Varanasi">Varanasi</option>
+                <option value="Prayagraj">Prayagraj</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="business_address">Full Street Address</label>
+            <input type="text" id="business_address" class="form-control" placeholder="Shop No, Market, Locality" required />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="password">Password (min 6 characters)</label>
+            <input type="password" id="password" class="form-control" minlength="6" required />
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-lg btn-block">Create Partner Account</button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/config.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/common.js"></script>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Style Studio — Hairstyle, Beard & Beauty Advisor — Stylora</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/customer.css" />
+  <link rel="stylesheet" href="css/ai.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+  <div id="siteHeader"></div>
+
+  <section class="ai-studio-hero">
+    <div class="container">
+      <span class="badge" style="background:rgba(255,255,255,0.18);color:#FDE68A;margin-bottom:10px;"><i class="fa-solid fa-wand-magic-sparkles"></i> STYLEBOOK AI STYLE STUDIO</span>
+      <h1 style="font-family:var(--font-display);font-size:2.3rem;font-weight:800;margin-bottom:8px;">Discover Your Best Haircut, Beard, Color & Beauty Look</h1>
+      <p style="color:rgba(255,255,255,0.82);max-width:680px;">
+        Upload or capture a photo to estimate face shape, hair length, and texture — and receive tailored hairstyle, beard contour, hair color, and makeup recommendations that you can book in one click.
+      </p>
+    </div>
+  </section>
+
+  <main class="container">
+    <div class="ai-studio-grid">
+      <!-- LEFT: PHOTO UPLOAD / CAMERA + PARAMETERS -->
+      <div class="card" style="padding:26px;">
+        <h2 style="font-size:1.25rem;font-weight:700;margin-bottom:14px;">1. Upload or Take a Photo</h2>
+
+        <div class="photo-upload-zone" id="aiPhotoDropZone">
+          <img id="aiPhotoPreview" class="photo-preview-img" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=400&q=80" alt="Style Preview" />
+          <video id="aiCameraVideo" autoplay playsinline style="display:none;width:100%;max-height:260px;border-radius:12px;margin-bottom:12px;"></video>
+          <p style="font-weight:600;color:var(--primary);margin-bottom:4px;"><i class="fa-solid fa-cloud-arrow-up"></i> Click to Upload Portrait Photo</p>
+          <span style="font-size:0.8rem;color:var(--text-muted);">Supports JPG, PNG, WebP • Instant privacy-safe analysis</span>
+          <input type="file" id="aiPhotoInput" accept="image/*" style="display:none;" />
+        </div>
+
+        <div style="display:flex;gap:10px;margin:14px 0 20px;flex-wrap:wrap;">
+          <button type="button" class="btn btn-soft btn-sm" id="startCameraBtn"><i class="fa-solid fa-camera"></i> Take Photo with Camera</button>
+          <button type="button" class="btn btn-success btn-sm" id="capturePhotoBtn" style="display:none;"><i class="fa-solid fa-bolt"></i> Capture Frame Now</button>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+          <div class="form-group">
+            <label class="form-label" for="aiPrefSelect">Styling Category</label>
+            <select id="aiPrefSelect" class="form-control">
+              <option value="men">Men's Haircut & Beard</option>
+              <option value="women">Women's Hair & Makeup</option>
+              <option value="unisex">Unisex Contemporary</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="aiFaceShapeSelect">Face Shape Contour</label>
+            <select id="aiFaceShapeSelect" class="form-control">
+              <option value="Oval / Balanced Contour">Oval / Auto-Detect</option>
+              <option value="Square / Angular Jawline">Square / Angular</option>
+              <option value="Round / Soft Cheekbones">Round Contour</option>
+              <option value="Heart / Diamond Shape">Heart / Diamond</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+          <div class="form-group">
+            <label class="form-label" for="aiHairTypeSelect">Hair Type</label>
+            <select id="aiHairTypeSelect" class="form-control">
+              <option value="Medium-Thick Wavy Texture">Medium Wavy</option>
+              <option value="Straight & Fine Texture">Straight & Fine</option>
+              <option value="Thick & Curly / Coily">Thick & Curly</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="aiOccasionSelect">Occasion</label>
+            <select id="aiOccasionSelect" class="form-control">
+              <option value="Executive & Everyday">Executive & Everyday</option>
+              <option value="Wedding / Bridal / Festive">Wedding & Festive</option>
+              <option value="Party & Evening">Party & Cocktail</option>
+            </select>
+          </div>
+        </div>
+
+        <button type="button" class="btn btn-primary btn-lg btn-block" id="runAiStyleAnalysisBtn">
+          <i class="fa-solid fa-wand-magic-sparkles"></i> Analyze My Style
+        </button>
+      </div>
+
+      <!-- RIGHT: AI RECOMMENDATIONS + BOOK THIS STYLE + AI CHAT -->
+      <div>
+        <div id="aiAnalysisResultMount" style="margin-bottom:24px;"></div>
+
+        <!-- INTERACTIVE AI STYLE ADVISOR CHAT -->
+        <div class="card" style="padding:24px;">
+          <h3 style="font-size:1.18rem;font-weight:700;margin-bottom:6px;"><i class="fa-solid fa-comments" style="color:var(--primary);"></i> Ask the AI Style Advisor</h3>
+          <p style="font-size:0.84rem;color:var(--text-muted);margin-bottom:12px;">Click a prompt below or type any grooming/beauty question:</p>
+
+          <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px;">
+            <button type="button" class="quick-reply-chip" onclick="StyleBookAI.askStudioChat('What hairstyle will suit me?')">What hairstyle will suit me?</button>
+            <button type="button" class="quick-reply-chip" onclick="StyleBookAI.askStudioChat('Which beard style should I try?')">Which beard style should I try?</button>
+            <button type="button" class="quick-reply-chip" onclick="StyleBookAI.askStudioChat('Suggest a professional hairstyle.')">Suggest a professional hairstyle</button>
+            <button type="button" class="quick-reply-chip" onclick="StyleBookAI.askStudioChat('What hair color would suit this style?')">What hair color would suit me?</button>
+          </div>
+
+          <div class="chat-messages-box" id="studioAiChatBox" style="height:230px;border-radius:var(--radius-md);border:1px solid var(--border);margin-bottom:12px;">
+            <div class="chat-bubble received">
+              Welcome to StyleBook AI Studio! Ask me about haircuts for oval/round/square faces, beard sculpting, bridal glow facials, or ammonia-free hair color shades.
+            </div>
+          </div>
+
+          <form id="studioAiChatForm" style="display:flex;gap:10px;">
+            <input type="text" id="studioAiChatInput" class="form-control" placeholder="e.g. What haircut is good for an oval face?" required />
+            <button type="submit" class="btn btn-primary">Ask AI</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div id="siteFooter"></div>
+
+  <script src="js/config.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/ai.js"></script>
+</body>
+</html>

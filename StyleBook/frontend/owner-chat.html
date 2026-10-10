@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Customer Chat Console — Stylora</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/customer.css" />
+  <link rel="stylesheet" href="css/owner.css" />
+  <link rel="stylesheet" href="css/ai.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+  <div id="siteHeader"></div>
+
+  <div class="owner-layout">
+    <div id="ownerSidebarMount"></div>
+    <main class="owner-main">
+      <h1 style="font-family:var(--font-display);font-size:1.7rem;font-weight:800;">Customer Chat & Support Console</h1>
+      <p style="color:var(--text-muted);">Reply to customer inquiries regarding queue position, appointment timing, and home service dispatch.</p>
+
+      <div class="chat-layout">
+        <aside class="card" style="overflow-y:auto;max-height:600px;display:flex;flex-direction:column;">
+          <div style="display:flex;border-bottom:1px solid var(--border);background:#F8FAFC;">
+            <button type="button" id="tabSalonChats" class="tab-btn active" style="flex:1;padding:12px;font-size:0.86rem;font-weight:700;border:none;cursor:pointer;" onclick="StyleBookChat.switchMode('salon')">
+              <i class="fa-solid fa-users"></i> Customer Threads
+            </button>
+            <button type="button" id="tabFriendChats" class="tab-btn" style="flex:1;padding:12px;font-size:0.86rem;font-weight:700;border:none;cursor:pointer;" onclick="StyleBookChat.switchMode('friend')">
+              <i class="fa-solid fa-user-group"></i> Friend Chat
+            </button>
+          </div>
+
+          <!-- FRIEND SEARCH SECTION -->
+          <div id="friendSearchPane" style="display:none;padding:12px;border-bottom:1px solid var(--border);background:#FFFFFF;">
+            <div style="display:flex;gap:8px;">
+              <input type="text" id="friendSearchInput" class="form-control" style="font-size:0.85rem;" placeholder="Phone (e.g. 9811024501) or ID..." onkeydown="if(event.key==='Enter'){event.preventDefault();StyleBookChat.searchFriends();}" />
+              <button type="button" class="btn btn-primary btn-sm" onclick="StyleBookChat.searchFriends()"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+            <div id="friendSearchResults" style="margin-top:8px;"></div>
+          </div>
+
+          <div id="chatConversationsList" style="flex:1;overflow-y:auto;"></div>
+        </aside>
+
+        <section class="card" style="display:flex;flex-direction:column;">
+          <div id="chatActiveHeader" style="padding:16px 20px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;"></div>
+          <div class="chat-messages-box" id="chatMessagesBox"></div>
+
+          <div class="quick-replies-bar">
+            <button type="button" class="quick-reply-chip" onclick="StyleBookChat.sendMessageText('Your chair is ready! Please head over.')">Your chair is ready!</button>
+            <button type="button" class="quick-reply-chip" onclick="StyleBookChat.sendMessageText('There are 2 people ahead of you (~20 mins wait).')">2 people ahead (~20 mins)</button>
+            <button type="button" class="quick-reply-chip" onclick="StyleBookChat.sendMessageText('Yes, this service is available today!')">Yes, service is available!</button>
+            <button type="button" class="quick-reply-chip" onclick="StyleBookChat.sendMessageText('Our home service specialist is on the way.')">Home specialist on the way</button>
+          </div>
+
+          <form id="chatMessageForm" style="padding:14px;border-top:1px solid var(--border);display:flex;gap:10px;">
+            <input type="text" id="chatMessageInput" class="form-control" placeholder="Reply to customer..." required />
+            <button type="submit" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i> Send Reply</button>
+          </form>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/config.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/owner.js"></script>
+  <script src="js/chat.js"></script>
+</body>
+</html>

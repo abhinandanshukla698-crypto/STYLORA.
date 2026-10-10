@@ -1,0 +1,148 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "User and salon owner profiles",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "email": { "type": "string" },
+        "phone": { "type": "string" },
+        "role": { "type": "string", "enum": ["customer", "owner", "admin"] },
+        "avatar": { "type": "string" },
+        "city": { "type": "string" },
+        "location": { "type": "string" },
+        "created_at": { "type": "string" }
+      },
+      "required": ["id", "name", "email", "role"]
+    },
+    "Business": {
+      "title": "Business",
+      "description": "Registered salons, parlours and studios",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "owner_id": { "type": "string" },
+        "name": { "type": "string" },
+        "category": { "type": "string" },
+        "city": { "type": "string" },
+        "address": { "type": "string" },
+        "phone": { "type": "string" },
+        "rating": { "type": "number" },
+        "starting_price": { "type": "number" },
+        "image": { "type": "string" },
+        "is_open": { "type": "boolean" },
+        "created_at": { "type": "string" }
+      },
+      "required": ["id", "owner_id", "name", "category", "city"]
+    },
+    "Service": {
+      "title": "Service",
+      "description": "Haircut, styling and grooming services offered by a salon",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "business_id": { "type": "string" },
+        "name": { "type": "string" },
+        "category": { "type": "string" },
+        "price": { "type": "number" },
+        "duration": { "type": "number" }
+      },
+      "required": ["id", "business_id", "name", "price"]
+    },
+    "Booking": {
+      "title": "Booking",
+      "description": "Customer salon appointments and queues",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "user_id": { "type": "string" },
+        "business_id": { "type": "string" },
+        "service_id": { "type": "string" },
+        "service_name": { "type": "string" },
+        "date": { "type": "string" },
+        "time": { "type": "string" },
+        "status": { "type": "string" },
+        "total_amount": { "type": "number" },
+        "token_number": { "type": "number" },
+        "created_at": { "type": "string" }
+      },
+      "required": ["id", "user_id", "business_id", "status"]
+    },
+    "Queue": {
+      "title": "Queue",
+      "description": "Real-time queue tracking for salons",
+      "type": "object",
+      "properties": {
+        "business_id": { "type": "string" },
+        "currently_serving": { "type": "number" },
+        "waiting_count": { "type": "number" },
+        "estimated_wait_min": { "type": "number" },
+        "updated_at": { "type": "string" }
+      },
+      "required": ["business_id"]
+    },
+    "Message": {
+      "title": "Message",
+      "description": "Direct chat between customer and salon",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "booking_id": { "type": "string" },
+        "sender_id": { "type": "string" },
+        "sender_name": { "type": "string" },
+        "sender_role": { "type": "string" },
+        "text": { "type": "string" },
+        "created_at": { "type": "string" }
+      },
+      "required": ["id", "booking_id", "sender_id", "text"]
+    },
+    "Notification": {
+      "title": "Notification",
+      "description": "User notification alerts",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "user_id": { "type": "string" },
+        "title": { "type": "string" },
+        "message": { "type": "string" },
+        "type": { "type": "string" },
+        "booking_id": { "type": "string" },
+        "read": { "type": "boolean" },
+        "created_at": { "type": "string" }
+      },
+      "required": ["id", "user_id", "title", "message"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "Profiles of registered customers and salon owners"
+    },
+    "/businesses/{businessId}": {
+      "schema": "Business",
+      "description": "Registered salon establishments"
+    },
+    "/services/{serviceId}": {
+      "schema": "Service",
+      "description": "Catalog of salon services"
+    },
+    "/bookings/{bookingId}": {
+      "schema": "Booking",
+      "description": "Salon bookings and appointments"
+    },
+    "/queue/{businessId}": {
+      "schema": "Queue",
+      "description": "Real-time live queue statistics"
+    },
+    "/messages/{messageId}": {
+      "schema": "Message",
+      "description": "Chat messages"
+    },
+    "/notifications/{notificationId}": {
+      "schema": "Notification",
+      "description": "User notifications"
+    }
+  }
+}

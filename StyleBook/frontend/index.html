@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stylora — Look Good. Feel Great. Live Salon & Beauty Booking</title>
+  <meta name="description" content="Stylora: Book trusted men's salons, women's beauty parlours, unisex studios, and doorstep beauty services with real-time live queue tracking and AI style recommendations." />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/customer.css" />
+  <link rel="stylesheet" href="css/ai.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+  <div id="siteHeader"></div>
+
+  <!-- HERO SECTION -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <div class="hero-eyebrow">
+            <span class="queue-pulse-dot"></span>
+            <span>YOUR STYLE. YOUR PLACE. YOUR TIME.</span>
+          </div>
+          <h1 class="hero-title">Look Good. <span>Feel Great.</span></h1>
+          <p class="hero-subtitle">
+            Book trusted salons and beauty professionals near you — whenever you need them. Check the live salon queue and estimated wait time <strong>before</strong> you step out.
+          </p>
+
+          <form class="search-bar-hero" id="heroSearchForm">
+            <div class="search-input-wrap">
+              <i class="fa-solid fa-magnifying-glass" style="color:var(--primary);"></i>
+              <input type="text" id="heroSearchInput" placeholder="Search salon, parlour, service or location..." aria-label="Search salon, parlour, service or location" />
+            </div>
+            <select id="heroCitySelect" class="form-control" style="max-width:165px;border:none;background:var(--surface-alt);font-weight:600;" aria-label="Select City">
+              <option value="all">All Cities</option>
+              <option value="Delhi">Delhi</option>
+              <option value="Noida">Noida</option>
+              <option value="Gurugram">Gurugram</option>
+              <option value="Ghaziabad">Ghaziabad</option>
+              <option value="Lucknow">Lucknow</option>
+              <option value="Kanpur">Kanpur</option>
+              <option value="Varanasi">Varanasi</option>
+              <option value="Prayagraj">Prayagraj</option>
+            </select>
+            <button type="submit" class="btn btn-primary btn-lg">Find Nearby</button>
+          </form>
+
+          <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;">
+            <a href="explore.html" class="btn btn-outline"><i class="fa-solid fa-compass"></i> Explore Services</a>
+            <button type="button" class="btn btn-soft" id="detectLocationBtn"><i class="fa-solid fa-location-crosshairs"></i> Use My Location</button>
+            <a href="ai-studio.html" class="btn btn-outline"><i class="fa-solid fa-wand-magic-sparkles" style="color:var(--primary);"></i> AI Style Studio</a>
+          </div>
+        </div>
+
+        <div class="hero-image-collage">
+          <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1100&q=80" alt="Luxury Salon & Beauty Studio" class="hero-main-img" />
+          <div class="hero-floating-queue-card">
+            <div style="width:44px;height:44px;border-radius:12px;background:rgba(16,185,129,0.2);color:#34D399;display:flex;align-items:center;justify-content:center;font-size:1.3rem;">
+              <i class="fa-solid fa-stopwatch"></i>
+            </div>
+            <div>
+              <div style="font-size:0.74rem;text-transform:uppercase;color:#A7F3D0;font-weight:700;">Live Queue Transparency</div>
+              <div class="mono-num" style="font-size:0.98rem;font-weight:700;">Now Serving #18 • 2 Seats Free</div>
+              <div style="font-size:0.78rem;color:rgba(255,255,255,0.72);">Royale Crown Atelier • Connaught Place</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CUSTOMER TYPE SELECTION (ONBOARDING PREFERENCE) -->
+  <div class="container">
+    <section class="onboarding-strip" aria-label="Customer Service Preference">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">
+        <div>
+          <h2 style="font-family:var(--font-display);font-size:1.25rem;font-weight:700;">What are you looking for today?</h2>
+          <p style="font-size:0.86rem;color:var(--text-muted);">Personalizes service & studio recommendations below — switch anytime.</p>
+        </div>
+        <button type="button" class="btn btn-sm btn-outline type-card" data-type="all" style="padding:7px 14px;">Show All Categories</button>
+      </div>
+
+      <div class="type-cards-grid">
+        <div class="type-card" data-type="men">
+          <span class="type-card-icon"><i class="fa-solid fa-user-tie"></i></span>
+          <div>
+            <strong style="display:block;">Men's Salon</strong>
+            <span style="font-size:0.78rem;color:var(--text-muted);">Fades, Beard, Shave & Facial</span>
+          </div>
+        </div>
+
+        <div class="type-card" data-type="women">
+          <span class="type-card-icon" style="color:var(--secondary);"><i class="fa-solid fa-spa"></i></span>
+          <div>
+            <strong style="display:block;">Women's Beauty Parlour</strong>
+            <span style="font-size:0.78rem;color:var(--text-muted);">Bridal, Makeup, Glow & Mehndi</span>
+          </div>
+        </div>
+
+        <div class="type-card" data-type="unisex">
+          <span class="type-card-icon"><i class="fa-solid fa-scissors"></i></span>
+          <div>
+            <strong style="display:block;">Unisex Salon</strong>
+            <span style="font-size:0.78rem;color:var(--text-muted);">Hair Color, Keratin, Nails & Spa</span>
+          </div>
+        </div>
+
+        <div class="type-card" data-type="home">
+          <span class="type-card-icon" style="color:var(--accent);"><i class="fa-solid fa-house-chimney-user"></i></span>
+          <div>
+            <strong style="display:block;">Home Service</strong>
+            <span style="font-size:0.78rem;color:var(--text-muted);">100% Hygienic Doorstep Pros</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEARBY SALONS & PARLOURS -->
+    <section class="section-block">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Nearby Verified Salons & Parlours</h2>
+          <p class="section-subtitle">Check real-time queue, waiting time, and available chairs before booking.</p>
+        </div>
+        <a href="explore.html" class="btn btn-outline btn-sm">View All 15+ Studios →</a>
+      </div>
+      <div class="cards-grid-3" id="homeNearbyGrid">
+        <div class="skeleton" style="height:360px;"></div>
+        <div class="skeleton" style="height:360px;"></div>
+        <div class="skeleton" style="height:360px;"></div>
+      </div>
+    </section>
+
+    <!-- POPULAR SERVICES -->
+    <section class="section-block">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Popular Salon & Home Beauty Services</h2>
+          <p class="section-subtitle">Transparent INR pricing with instant queue token reservation.</p>
+        </div>
+        <a href="explore.html" class="btn btn-soft btn-sm">Browse Full Service Menu</a>
+      </div>
+      <div class="cards-grid-4" id="homePopularServicesGrid"></div>
+    </section>
+
+    <!-- CURATED CATEGORY SHOWCASE: MEN'S GROOMING, WOMEN'S BEAUTY, UNISEX & HOME SERVICE -->
+    <section class="section-block">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Explore by Specialization</h2>
+          <p class="section-subtitle">Four complete grooming and beauty ecosystems on one unified platform.</p>
+        </div>
+      </div>
+      <div class="cards-grid-4">
+        <div class="card" style="padding:22px;">
+          <span class="badge badge-verified" style="margin-bottom:10px;">MEN'S GROOMING</span>
+          <h3 style="font-size:1.15rem;font-weight:700;margin-bottom:8px;">Master Barbers & Men's Lounge</h3>
+          <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:14px;">
+            Haircut, Hair Styling, Beard Trim, Hot-Towel Shaving, Hair Color, Charcoal Facial, Head Massage & Complete Grooming Packages.
+          </p>
+          <a href="explore.html?category=men" class="btn btn-outline btn-sm btn-block">Explore Men's Salons</a>
+        </div>
+
+        <div class="card" style="padding:22px;">
+          <span class="badge badge-home" style="margin-bottom:10px;">WOMEN'S BEAUTY</span>
+          <h3 style="font-size:1.15rem;font-weight:700;margin-bottom:8px;">Women's Parlour & Bridal Couture</h3>
+          <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:14px;">
+            Bridal Makeup, Party Makeup, HydraFacial, Rica Waxing, Threading, Manicure, Pedicure, Mehndi & Skin Care Rituals.
+          </p>
+          <a href="explore.html?category=women" class="btn btn-outline btn-sm btn-block">Explore Women's Parlours</a>
+        </div>
+
+        <div class="card" style="padding:22px;">
+          <span class="badge badge-open" style="margin-bottom:10px;">UNISEX STUDIO</span>
+          <h3 style="font-size:1.15rem;font-weight:700;margin-bottom:8px;">Unisex Hair & Aesthetics Labs</h3>
+          <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:14px;">
+            Balayage, Olaplex Treatments, Keratin Spa, Creative Cuts, Russian Gel Nails, Aromatherapy Massage & Dermal Facials.
+          </p>
+          <a href="explore.html?category=unisex" class="btn btn-outline btn-sm btn-block">Explore Unisex Studios</a>
+        </div>
+
+        <div class="card" style="padding:22px;">
+          <span class="badge badge-pending" style="margin-bottom:10px;">AT-HOME CONCIERGE</span>
+          <h3 style="font-size:1.15rem;font-weight:700;margin-bottom:8px;">Doorstep Home Beauty & Salon</h3>
+          <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:14px;">
+            Home Haircut, Home Grooming, Home Makeup, Home Facial, Home Manicure/Pedicure & Complete Home Bridal Suites.
+          </p>
+          <a href="explore.html?category=home" class="btn btn-outline btn-sm btn-block">Book Home Service</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- AI STYLE STUDIO BANNER -->
+    <section class="section-block">
+      <div style="background:linear-gradient(135deg,#111827 0%,#3B0764 60%,#7C3AED 100%);color:#FFFFFF;border-radius:var(--radius-xl);padding:40px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px;">
+        <div style="max-width:620px;">
+          <span class="badge" style="background:rgba(255,255,255,0.15);color:#FDE68A;margin-bottom:10px;"><i class="fa-solid fa-wand-magic-sparkles"></i> AI STYLE STUDIO</span>
+          <h2 style="font-family:var(--font-display);font-size:2rem;margin-bottom:10px;">Not sure which haircut, beard, or hair color suits your face shape?</h2>
+          <p style="color:rgba(255,255,255,0.82);font-size:0.96rem;">
+            Upload or take a photo in our AI Style Studio to get personalized hairstyle, beard contour, hair color, and makeup recommendations — then book the exact service in one click.
+          </p>
+        </div>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;">
+          <a href="ai-studio.html" class="btn btn-primary btn-lg"><i class="fa-solid fa-camera"></i> Launch AI Style Studio</a>
+          <a href="map.html" class="btn btn-outline btn-lg" style="background:rgba(255,255,255,0.1);color:#fff;border-color:rgba(255,255,255,0.25);"><i class="fa-solid fa-map-location-dot"></i> Open Live Map</a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div id="siteFooter"></div>
+
+  <script src="js/config.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/customer.js"></script>
+</body>
+</html>

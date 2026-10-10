@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Explore Salons, Parlours & Home Services — Stylora</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/customer.css" />
+  <link rel="stylesheet" href="css/ai.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+  <div id="siteHeader"></div>
+
+  <div class="container">
+    <div class="explore-layout">
+      <!-- FILTER SIDEBAR -->
+      <aside class="filter-sidebar" aria-label="Search Filters">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
+          <h2 style="font-size:1.1rem;font-weight:700;"><i class="fa-solid fa-sliders" style="color:var(--primary);"></i> Filters</h2>
+          <button type="button" class="btn btn-sm btn-soft" id="resetExploreFilters">Reset</button>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="filterSearch">Keyword Search</label>
+          <input type="text" id="filterSearch" class="form-control" placeholder="Salon, service, locality..." />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="filterCity">Location / City</label>
+          <select id="filterCity" class="form-control">
+            <option value="all">All Cities (NCR & UP)</option>
+            <option value="Delhi">Delhi</option>
+            <option value="Noida">Noida</option>
+            <option value="Gurugram">Gurugram</option>
+            <option value="Ghaziabad">Ghaziabad</option>
+            <option value="Lucknow">Lucknow</option>
+            <option value="Kanpur">Kanpur</option>
+            <option value="Varanasi">Varanasi</option>
+            <option value="Prayagraj">Prayagraj</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="filterCategory">Salon Category</label>
+          <select id="filterCategory" class="form-control">
+            <option value="all">All Categories</option>
+            <option value="men">Men's Salon</option>
+            <option value="women">Women's Beauty Parlour</option>
+            <option value="unisex">Unisex Salon</option>
+            <option value="home">Home Service</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="filterService">Specific Service</label>
+          <select id="filterService" class="form-control">
+            <option value="all">Any Service</option>
+            <option value="Haircut">Haircut & Styling</option>
+            <option value="Beard">Beard Trim & Shaving</option>
+            <option value="Facial">Facial & Cleanup</option>
+            <option value="Bridal">Bridal & Party Makeup</option>
+            <option value="Hair Color">Hair Color & Balayage</option>
+            <option value="Hair Spa">Hair Spa & Treatment</option>
+            <option value="Waxing">Waxing & Threading</option>
+            <option value="Manicure">Manicure & Pedicure</option>
+            <option value="Mehndi">Mehndi Art</option>
+            <option value="Massage">Head & Body Massage</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="filterRating">Minimum Rating</label>
+          <select id="filterRating" class="form-control">
+            <option value="">Any Rating</option>
+            <option value="4.8">4.8★ & above</option>
+            <option value="4.5">4.5★ & above</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="filterMaxPrice">Starting Price Under</label>
+          <select id="filterMaxPrice" class="form-control">
+            <option value="">Any Price</option>
+            <option value="250">Under ₹250</option>
+            <option value="350">Under ₹350</option>
+            <option value="500">Under ₹500</option>
+          </select>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:10px;padding-top:8px;">
+          <label style="display:flex;align-items:center;gap:8px;font-size:0.9rem;cursor:pointer;">
+            <input type="checkbox" id="filterOpenNow" checked />
+            <span>Open & Available Today</span>
+          </label>
+          <label style="display:flex;align-items:center;gap:8px;font-size:0.9rem;cursor:pointer;">
+            <input type="checkbox" id="filterHomeService" />
+            <span>Home Service Available</span>
+          </label>
+        </div>
+      </aside>
+
+      <!-- MAIN RESULTS AREA -->
+      <main>
+        <div class="card" style="padding:18px 22px;margin-bottom:22px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
+          <div>
+            <h1 style="font-size:1.35rem;font-weight:800;" id="exploreCount">15 Verified Salons & Parlours Found</h1>
+            <p style="font-size:0.84rem;color:var(--text-muted);">Live queue & estimated wait time displayed on every card before booking.</p>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;">
+            <label for="filterSort" style="font-size:0.86rem;font-weight:600;">Sort by:</label>
+            <select id="filterSort" class="form-control" style="width:auto;">
+              <option value="nearest">Nearest Distance</option>
+              <option value="fastest_queue">Fastest Queue (Lowest Wait)</option>
+              <option value="rating">Highest Rating</option>
+              <option value="price_asc">Price: Low to High</option>
+              <option value="price_desc">Price: High to Low</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="cards-grid-3" id="exploreResultsGrid"></div>
+      </main>
+    </div>
+  </div>
+
+  <div id="siteFooter"></div>
+
+  <script src="js/config.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/customer.js"></script>
+</body>
+</html>

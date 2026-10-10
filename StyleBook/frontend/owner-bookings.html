@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manage Salon Bookings — Stylora</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/owner.css" />
+  <link rel="stylesheet" href="css/ai.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+  <div id="siteHeader"></div>
+
+  <div class="owner-layout">
+    <div id="ownerSidebarMount"></div>
+    <main class="owner-main" id="ownerBookingsMount">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;margin-bottom:20px;">
+        <div>
+          <h1 style="font-family:var(--font-display);font-size:1.75rem;font-weight:800;">Booking Requests & Schedule</h1>
+          <p style="color:var(--text-muted);">Accept requests to generate queue numbers, start services, or complete visits.</p>
+        </div>
+        <a href="owner-queue.html" class="btn btn-primary"><i class="fa-solid fa-users-viewfinder"></i> Live Queue Terminal</a>
+      </div>
+
+      <div class="tabs-bar">
+        <button type="button" class="tab-btn active" data-tab="ALL">All Bookings</button>
+        <button type="button" class="tab-btn" data-tab="PENDING">Pending Requests</button>
+        <button type="button" class="tab-btn" data-tab="ACCEPTED">Accepted / In Queue</button>
+        <button type="button" class="tab-btn" data-tab="TODAY">Today</button>
+        <button type="button" class="tab-btn" data-tab="COMPLETED">Completed</button>
+        <button type="button" class="tab-btn" data-tab="CANCELLED">Cancelled / Rejected</button>
+      </div>
+
+      <div class="data-table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Queue #</th>
+              <th>Customer</th>
+              <th>Service & Type</th>
+              <th>Date & Time</th>
+              <th>Price</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="ownerBookingsTableBody"></tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/config.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/owner.js"></script>
+</body>
+</html>
